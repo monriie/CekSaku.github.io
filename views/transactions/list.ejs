@@ -1,0 +1,13 @@
+<%- contentFor('page_title') %>Riwayat Transaksi
+
+  <%- contentFor('body') %>
+    <div class="container-t body-wrapper">
+      
+      <%- include('../partials/sidebar') %>
+        <main class="history">
+          <h1>Riwayat Transaksi</h1>
+          <div class="content-wrapper">
+            <%- include('../partials/transactions-table') %>
+          </div>
+        </main>
+    </div>

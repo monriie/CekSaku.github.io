@@ -1,0 +1,77 @@
+.manage .container-m {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  padding: 7rem 20rem;
+  width: 100%;
+  max-width: 100%;
+}
+
+.manage-budget {
+  /* background: #fff; */
+  padding: 2rem;
+  border-radius: 0.6rem;
+  box-shadow: 0 0.15rem 0.3rem rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--card-bg);
+}
+
+.manage-budget h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.manage-budget span {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  margin-bottom: 2rem;
+}
+
+form {
+  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+form input,
+form select {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 0.2rem solid var(--sub-text);
+  border-radius: 0.6rem;
+}
+
+form button {
+  padding: 1.5rem 1.5rem;
+  font-size: 1.5rem;
+  color: var(--primary);
+  background-color: var(--text);
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: var(--primary);
+  color: var(--card-bg);
+}
+
+.manage-budget button[type="submit"] {
+  width: 100%;
+  margin-top: 1rem;
+}

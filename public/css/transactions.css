@@ -1,0 +1,232 @@
+/* Style the search form*/
+
+
+body .container-t{
+  gap: 2rem;
+  width: 100%;
+  height: 80%;
+  min-height: calc(100% + 20rem);
+  padding: 2rem;
+  margin-right: 5rem;
+  box-sizing: border-box;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+aside.sidebar{
+  width: 100%;
+  max-width: fit-content;
+}
+
+main.transactions-filter {
+  background-color: var(--secondary);
+  width: 100%;
+  border-radius: 0.8rem;
+  height: fit-content;
+  max-height: fit-content;
+  box-shadow: 0 0.15rem 0.3rem rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem;
+}
+
+.container-t {
+  display: flex;
+  gap: 2rem;
+}
+
+form input,
+form select {
+  width: 100%;
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  border: 0.2rem solid;
+  border-radius: 0.6rem;
+  color: var(--text-dark);
+}
+
+.search-form {
+  display: flex;
+  align-items: start;
+}
+
+.search-box {
+  background-color: var(--card-bg);
+  display: flex;
+  justify-content: start;
+  width: 100%;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.search-box input {
+  margin: 0;
+  padding: 1rem;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+}
+
+.search-box button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+
+main.transactions-filter .grub-form {
+  font-size: 1rem;
+  margin: 0.3rem;
+  color: var(--text-dark);
+  gap: 0.5rem;
+}
+
+main.transactions-filter .form-group {
+  display: flex;
+  flex-direction: column;
+  color: var(--text-dark);
+  gap: 0.5rem;
+}
+
+main.transactions-filter form label {
+  font-size: 1rem;
+  color: var(--sub-text);
+}
+
+main.transactions-filter form input,
+main.transactions-filter form select {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 0.2rem solid var(--text);
+  border-radius: 0.6rem;
+}
+
+main.transaction-filter h3 {
+  color: var(--text);
+}
+
+aside h3,
+label {
+  color: var(--sub-text);
+}
+
+button[type="submit"] {
+  width: 100%;
+}
+
+/* Style the transaction table */
+.history {
+  align-items: start;
+  padding-right: 9rem;
+}
+
+.history h1 {
+  padding-bottom: 1rem;
+}
+
+.transaction-table {
+  background-color: var(--card-bg);
+  border-radius: 0.4rem;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transaction-table thead {
+  color: var(--border);
+  font-weight: bold;
+}
+
+.transaction-table th {
+  padding: 1rem;
+}
+
+.transaction-table tbody td {
+  padding: 1.5rem 1rem;
+  color: var(--secondary);
+}
+
+
+.transaction-category {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+
+.transaction-category img {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.transaction-table tbody tr:nth-child(odd) {
+  background-color: var(--sub-text);
+}
+
+.transaction-table tbody tr:nth-child(even) {
+  background-color: var(--sub-text);
+}
+
+.transaction-table .text-success {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.transaction-table .text-danger {
+  color: var(--buttonEx-background-color) ;
+  font-weight: 500;
+}
+
+/* Style for action buttons */
+.action-buttons form {
+  display: inline;
+}
+
+.action-button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.action-button:hover {
+  background-color: var(--text);
+  border-radius: 0.6rem;
+}
+
+.action-button i {
+  font-size: 1.2rem;
+  color: var(--secondary);
+}
+
+main.transactions-filter .btn-primary {
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: var(--card-bg);
+  border: 0.2rem solid var(--border);
+  color: var(--primary);
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary);
+  color: var(--text);
+}
+
+.edit-transactions {
+  background-color: var(--card-bg);
+  padding: 3rem;
+  border-radius: 0.6rem;
+}
+
+.edit-transactions .form-group {
+  display: flex;
+  flex-direction: column;
+  
+}

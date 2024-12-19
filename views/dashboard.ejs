@@ -1,0 +1,87 @@
+<%- contentFor('page_title') %>Dasbor
+  <%- contentFor('body') %>
+  
+<div class="dashboard">
+  <section class="row2">
+    <!-- greet user -->
+    <main class="total">
+      <span class="greet">Halo, <%= currentUser.full_name %> !</span>
+      
+      <!-- total income dan Expense -->
+      <section class="total-budget">
+        <div class="cardIn">
+          
+          <div class="card-header"><span>Total Pemasukan</span><i class="fi fi-br-chat-arrow-grow"></i></div>
+          <div id="totalIncomeValue" class="card-value text-success text-medium">
+          </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div class="cardEx">
+          <div class="card-header"><span>Total Pengeluaran</span><i class="fi fi-br-chat-arrow-down"></i></div>
+          <div id="totalExpenseValue" class="card-value text-danger text-medium"></div>
+        </div>
+      </section>
+    </main>
+    
+    <section class="chart">
+      <aside>
+        <h4 class="text-center">Diagram Pemasukan</h4>
+        <canvas id="incomesTotalChart"></canvas>
+        <div class="card-container margin-top-20">
+      </aside>
+      <aside>
+        <div class="content-wrapper">
+          <h4 class="text-center">Diagram Pengeluaran</h4>
+          <canvas id="expenseTrendChart"></canvas>
+        </div>
+      </aside>
+    </section>
+    
+    <div id="transactions-data" data-transactions='<%- JSON.stringify(transactions) %>'></div>
+  
+  </section>
+
+<!-- tracker -->
+  <section class="tracker">
+    <br class="budgets-container">
+    <h4 class="text-center">Manajemen Keuangan</h4></br>
+    <% budgets.forEach(budget => { %>
+    <div class="budget-card">
+        <div class="budget-header">
+          <span class="budget-name"><%= budget.name %></span>
+          <td class="delete-btn">
+            <form action="/budgets/<%= budget.id %>" method="POST">
+              <input type="hidden" name="_method" value="DELETE">
+              <button class="action-button text-danger" title="Delete"><i class="fa fa-trash"></i></button>
+            </form>
+          </td>
+        </div>
+        <div class="budget-details">
+          <div class="budget-progress">
+            <div class="progress">
+              <div class="progress-bar" 
+              style="width: <%= budget.percentageUsed %>%;" 
+              role="progressbar" 
+              aria-valuenow="<%= budget.percentageUsed %>" 
+              aria-valuemin="0" 
+              aria-valuemax="100">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="budget-spent">
+        <span class="spent">tersisa.. </span>
+        <span><%= new Intl.NumberFormat().format(budget.totalSpent) %> / <%= new Intl.NumberFormat().format(budget.budgetAmount) %></span>
+        
+      </div>
+     </div>
+    <% }) %>
+  </section>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/js/dashboard.js"></script>

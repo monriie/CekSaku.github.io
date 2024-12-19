@@ -1,0 +1,23 @@
+<div class="container-t-body">
+
+  
+  <%- contentFor('page_title') %>
+    <%= currentPage==='search' ? 'Search' : 'Filter' %> Hasil
+  
+      <%- contentFor('body') %>
+        <div class="container-t body-wrapper">
+          <%- include('../partials/sidebar') %>
+            <main>
+              <h1>
+                <% if (currentPage==='search' ) { %>
+                  Hasil Untuk <%= query %>
+                    <% } else { %>
+                      Hasil Filter
+                      <% } %>
+              </h1>
+              <div class="content-wrapper">
+                <%- include('../partials/transactions-table') %>
+              </div>
+            </main>
+        </div>
+</div>

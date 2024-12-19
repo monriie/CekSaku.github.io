@@ -1,0 +1,41 @@
+<table class="transaction-table">
+  <thead>
+    <tr>
+      <th class="text-left">Kategori</th>
+      <th class="text-left">Tanggal</th>
+      <th class="text-right">Sebesar</th>
+      <th class="text-right">Tindakan</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% transactions.forEach((transaction)=> { %>
+      <tr>
+        <td class="transaction-category">
+          <% if (transaction.transaction_type==='expense' ) { %>
+              <%= transaction.category_name %>
+                <% } else { %>
+                    <%= transaction.category_name %>
+                      <% } %>
+        </td>
+        <td>
+          <%= new Date(transaction.date).toLocaleDateString() %>
+        </td>
+        <td
+          class="text-right text-medium <%= transaction.transaction_type === 'expense' ? 'text-danger' : 'text-success' %>">
+          <%= currentUser.currency_symbol %>
+            <%= new Intl.NumberFormat().format(transaction.amount) %>
+        </td>
+        <td class="action-buttons text-right">
+          <a class="action-button text-primary" title="View" href="/transactions/<%= transaction.id %>"><i
+              class="fa fa-eye"></i></a>
+          <a class="action-button text-primary" title="Edit" href="/transactions/<%= transaction.id %>/edit"><i
+              class="fa fa-edit"></i></a>
+          <form action="/transactions/<%= transaction.id %>" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <button class="action-button text-danger" title="Delete"><i class="fa fa-trash"></i></button>
+          </form>
+        </td>
+      </tr>
+      <% }) %>
+  </tbody>
+</table>

@@ -1,0 +1,52 @@
+<!-- Add New Expense Modal -->
+<div id="expenseModal" class="new-expense-modal">
+  <div class="modal-content">
+    <span class="close"><i class="fa-solid fa-xmark"></i></span>
+    <h3>Tambahkan Pengeluaran Baru</h3>
+    <form action="/transactions" method="POST">
+      <input type="hidden" name="transaction_type" value="expense" />
+      <div class="form-group">
+        <label for="category" class="text-medium">Kategori</label>
+        <select id="category" name="category" required>
+          <option selected>Pilih Kategori Pengeluaran</option>
+          <option value="1">Belanja Groceries</option>
+          <option value="2">Utilitas</option>
+          <option value="3">Sewa atau Hipotek</option>
+          <option value="4">Asuransi</option>
+          <option value="5">Kesehatan</option>
+          <option value="6">Biaya Kendaraan</option>
+          <option value="7">Transportasi Umum</option>
+          <option value="8">Makan di Luar</option>
+          <option value="9">Hiburan</option>
+          <option value="10">Liburan & Perjalanan</option>
+          <option value="11">Pakaian dan Aksesori</option>
+          <option value="12">Elektronik & Gadget</option>
+          <option value="13">Renovasi Rumah</option>
+          <option value="14">Layanan Hukum</option>
+          <option value="15">Fitness & Gym</option>
+          <option value="16">Makanan & Perlengkapan Hewan Peliharaan</option>
+          <option value="17">Pendidikan</option>
+          <option value="18">Pajak & Potongan</option>
+          <option value="19">Pembayaran Utang</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="amount" class="text-medium"
+          >Sebesar (<strong> <%= currentUser.currency_symbol %> </strong>)</label
+        >
+        <input type="number" min="1" step="any" name="amount" />
+      </div>
+      <div class="form-group">
+        <label for="description" class="text-medium">Deskripsi</label>
+        <textarea name="description"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="date" class="text-medium">Tanggal Transaksi</label>
+        <input type="date" name="date" />
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn-primary">simpan</button>
+      </div>
+    </form>
+  </div>
+</div>

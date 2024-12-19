@@ -1,0 +1,65 @@
+
+  <%- contentFor('page_title') %>Ubah Profil
+  
+    <%- contentFor('body') %>
+      <div class="container body-wrapper">
+        
+        <%- include('../partials/settings-sidebar') %>
+          <main class="edit">
+            <h1>
+              Ubah Profil
+            </h1>
+            <div class="content-wrapper">
+              <div class="md-content-width transaction-detail">
+  
+                <div class="photo">
+                  <div class="user-avatar">
+                    <% if(currentUser.profile_image_url) { %>
+                      <img src="<%= currentUser.profile_image_url %>" alt="<%= currentUser.full_name %>">
+                      <% } else { %>
+                        <img src="/images/avatar.png" alt="User Avatar">
+                        <% } %>
+                  </div>
+                </div>
+  
+                <div class="text-left">
+                  <form action="/profile" method="POST" class="md-content-width" enctype="multipart/form-data">
+                    <!-- <input type="hidden" name="_method" value="PUT"> -->
+  
+                    <div class="form-group">
+                      <label for="profile_image" class="text-medium">Ganti Foto Profil</label>
+                      <input type="file" name="profile_image">
+                    </div>
+  
+                    <div class="form-group">
+                      <label for="full_name" class="text-medium">Nama Lengkap</label>
+                      <input type="text" name="full_name" value="<%= currentUser.full_name %>">
+                    </div>
+  
+                    <div class="form-group">
+                      <label for="email" class="text-medium">Alamat Email</label>
+                      <input type="email" name="email" value="<%= currentUser.email %>">
+                    </div>
+  
+                    <div class="form-group">
+                      <label for="preferred_currency" class="text-medium">Mata Uang Anda</label>
+                      <select id="preferred_currency" name="preferred_currency">
+                        <option selected>pilih mata uang</option>
+                        <% currencies.forEach((currency)=> { %>
+                          <option value="<%= currency.id %>" <%=currentUser.currency_name===currency.name ? 'selected'
+                            : '' %>><%= currency.name %> (<%= currency.symbol %>)</option>
+                          <% }) %>
+                      </select>
+  
+                    </div>
+  
+                    <div class="form-group">
+                      <button type="submit" class="btn-primary">simpan</button>
+                    </div>
+                  </form>
+                </div>
+  
+              </div>
+            </div>
+          </main>
+      </div>

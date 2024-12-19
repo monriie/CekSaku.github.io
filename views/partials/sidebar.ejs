@@ -1,0 +1,103 @@
+<aside class="sidebar">
+  <%- include('./search-form') %>
+
+  <main class="transactions-filter">
+    <h3>Filter Hasil</h3>
+    <form action="/search/filter" method="get">
+
+      <!-- Filter by transaction type -->
+      <h4 class="grub-form">Transaksi</h4>
+      <div class="form-group">
+        <select id="transactionType" name="transactionType">
+          <option value=""></option>
+          <option value="income" <%=query.transactionType==='income' && 'selected' %>>Pemasukan</option>
+          <option value="expense" <%=query.transactionType==='expense' && 'selected' %>>Pengeluaran</option>
+        </select>
+
+        <!-- Filter by categories -->
+        <h4 class="grub-form">Kategori</h4>
+        <div class="form-group">
+          <label for="incomeCategory">Pemasukan</label>
+            <select id="incomeCategory" name="incomeCategory" required>
+              <option selected>Pilih Kategori Penghasilan</option>
+              <option value="20">Gaji/Penghasilan</option>
+              <option value="21">Pekerjaan Lepas</option>
+              <option value="22">Penghasilan Bisnis</option>
+              <option value="23">Pendapatan Sewa</option>
+              <option value="24">Pendapatan Investasi</option>
+              <option value="25">Side Hustle</option>
+              <option value="26">Penjualan Online</option>
+              <option value="27">Biaya Konsultasi</option>
+              <option value="28">Komisi</option>
+              <option value="29">Dividen</option>
+              <option value="30">Pendapatan dari Sampingan</option>
+              <option value="31">Penjualan Kerajinan</option>
+              <option value="32">Mengajar/Tutor</option>
+              <option value="33">Penjualan Musik/Seni</option>
+              <option value="34">Penjualan Properti</option>
+              <option value="35">Pendapatan Iklan</option>
+              <option value="36">Biaya Lisensi</option>
+              <option value="37">Beasiswa & Hibah</option>
+            </select>
+
+          <!-- Filter by expense -->
+          <div class="form-group">
+            <label for="expenseCategory">Pengeluaran</label>
+            <select id="expenseCategory" name="expenseCategory" required>
+              <option selected>Pilih Kategori Pengeluaran</option>
+              <option value="1">Belanja Groceries</option>
+              <option value="2">Utilitas</option>
+              <option value="3">Sewa atau Hipotek</option>
+              <option value="4">Asuransi</option>
+              <option value="5">Kesehatan</option>
+              <option value="6">Biaya Kendaraan</option>
+              <option value="7">Transportasi Umum</option>
+              <option value="8">Makan di Luar</option>
+              <option value="9">Hiburan</option>
+              <option value="10">Liburan & Perjalanan</option>
+              <option value="11">Pakaian dan Aksesori</option>
+              <option value="12">Elektronik & Gadget</option>
+              <option value="13">Renovasi Rumah</option>
+              <option value="14">Layanan Hukum</option>
+              <option value="15">Fitness & Gym</option>
+              <option value="16">Makanan & Perlengkapan Hewan Peliharaan</option>
+              <option value="17">Pendidikan</option>
+              <option value="18">Pajak & Potongan</option>
+              <option value="19">Pembayaran Utang</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Filter by amount -->
+        <h4 class="grub-form">Jangkauan Sebesar</h4>
+        <div class="spacer">
+          <div class="form-group">
+            <label for="minAmount">Min (<%= currentUser.currency_symbol %>)</label>
+            <input type="number" min="0" step="any" name="minAmount"
+              value="<%= query.minAmount ? query.minAmount : '' %>">
+          </div>
+          <div class="form-group">
+            <label for="maxAmount">Max (<%= currentUser.currency_symbol %>)</label>
+            <input type="number" min="0" step="any" name="maxAmount"
+              value="<%= query.maxAmount ? query.maxAmount : '' %>">
+          </div>
+        </div>
+
+        <!-- Filter by date -->
+        <h4 class="grub-form">Jangkauan Tanggal</h4>
+        <div class="form-group">
+          <label for="startDate">Tanggal Mulai</label>
+          <input type="date" name="startDate" value="<%= query.startDate ? query.startDate : '' %>">
+        </div>
+        <div class="form-group">
+          <label for="endDate">Tanggal Berakhir</label>
+          <input type="date" name="endDate"
+            value="<%= query.endDate ? query.endDate : new Date().toISOString().substring(0, 10) %>">
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn-primary">Filter Hasil</button>
+        </div>
+    </form>
+  </aside>
+</aside>

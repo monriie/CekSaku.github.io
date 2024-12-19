@@ -1,0 +1,298 @@
+@import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css");
+@import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css");
+
+/* Layout untuk body */
+body .dashboard{
+  display: flex;
+  gap: 2rem;
+  height: 80%;
+  width: max-content;
+  min-height: calc(100% + 20rem);
+  padding: 2rem;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: flex-start;
+  color: var(--text-dark);
+}
+
+.tracker {
+  flex:1;
+  background-color: var(--secondary);
+  box-shadow: 0 0.15rem 0.3rem rgba(0, 0, 0, 0.1);
+  border-radius: 3%;
+  padding: 2rem;
+  width: 100%;
+  height: fit-content;
+  max-height: fit-content;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 14rem;
+}
+
+.tracker .text-center {
+  text-align: start;
+  color: var(--primary);
+  font-size: 1.6rem;
+  font-weight: bold;
+  padding: 0 1.8rem;
+}
+
+.budgets-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.budget-card {
+  background-color: var(--card-bg);
+  border-radius: 5%;
+  box-shadow: 0 0.15rem 0.3rem rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin: 1rem 2rem;
+}
+
+.budget-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.budget-icon {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 4%;
+  object-fit: cover;
+}
+
+.budget-name {
+  font-size: 1.1rem;
+  margin-top: 0.4rem;
+  font-weight: bold;
+  color: var(--secondary);
+}
+
+.budget-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.budget-spent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.budget-spent .spent {
+  font-size: 0.8rem;
+}
+
+/* Progress bar */
+.progress {
+  background-color: var(--text);
+  border-radius: 4px;
+  height: 12px;
+  position: relative;
+  overflow: hidden;
+  transition: width 0.4s ease;
+}
+
+.progress-bar {
+  background-color: var(--buttonEx-stroke-color);
+  height: 100%;
+  transition: width 0.4s ease;
+}
+/* =================================================== */
+
+/* greeting user + total */
+.total {
+  grid-row: 1;
+  background-color: var(--text);
+  box-shadow: 0 0.15rem 0.3rem rgba(0, 0, 0, 0.1);
+  border-radius: 5%;
+  padding: 3rem;
+  height: fit-content;
+  max-height: fit-content;
+}
+
+.total .greet {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.total .total-budget {
+  padding-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1;
+  margin-top: 2rem;
+  border-top: 0.2rem solid var(--card-border);
+}
+
+.total .cardIn,
+.total .cardEx {
+  flex: 1;
+  padding: 1rem;
+  text-align: left;
+}
+
+.total .cardEx {
+  padding-left: 3rem;
+}
+
+.total .cardIn {
+  border-right: 0.2rem solid var(--card-border);
+  padding-right: 3rem;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.card-header i {
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+.card-header span {
+  font-size: 1rem;
+  color: var(--primary);
+}
+
+.card-value {
+  font-size: 1.5rem;
+}
+
+/* ============================================================== */
+
+.row2 {
+  flex:3;
+  gap: 0.5rem;
+  width: 100%;
+  height: 100%;
+  height: fit-content;
+  max-height: fit-content;
+}
+
+.chart {
+  margin-top: 1rem;
+  grid-row: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--card-bg);
+  box-shadow: 0 0.15rem 0.3rem rgba(0, 0, 0, 0.1);
+  border-radius: 5%;
+  padding: 2rem;
+  width: 100%;
+  height: fit-content;
+  max-height: fit-content;
+}
+
+.chart aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 35%;
+}
+
+.chart h4 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--secondary);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.chart canvas {
+  min-width: 100%;
+  min-height: 80%;
+}
+
+.chart #expenseTrendChart{
+  width: 100%;
+  height: 100%;
+}
+
+/* ========================================== */
+@media screen and (max-width: 768px) {
+  /* Body */
+  body {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  /* Tracker */
+  .tracker {
+    width: 100%;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Budgets Container */
+  .budgets-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Budget Card */
+  .budget-card {
+    width: 100%;
+    margin: 0;
+  }
+
+  /* Total Section */
+  .total {
+    padding: 2rem;
+  }
+
+  .total .greet {
+    font-size: 1.5rem;
+  }
+
+  .total .total-budget {
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 1rem;
+  }
+
+  .total .cardIn, .total .cardEx {
+    text-align: center;
+    padding: 0;
+    border-right: none;
+  }
+
+  /* Chart Section */
+  .chart {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1.5rem;
+  }
+
+  .chart aside {
+    width: 100%;
+  }
+
+  .chart h4 {
+    font-size: 1.2rem;
+  }
+
+  .chart canvas {
+    min-width: 100%;
+    height: auto;
+  }
+}

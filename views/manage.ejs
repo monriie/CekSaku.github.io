@@ -1,0 +1,45 @@
+<%- contentFor('page_title') %>Manage <%- contentFor('body') %>
+
+<div class="manage">
+  <div class="container-m body-wrapper">
+    <section class="manage-budget">
+      <h1>Manajemen</h1>
+      <span>Mulailah Track Keuangan Anda untuk Bulan ini !</span>
+
+      <form action="/manage" method="POST">
+        <div class="manage-form">
+          <label for="category_id" class="text-medium">kategori</label>
+          <select id="category_id" name="category_id" required>
+            <option value="">Select Category</option>
+            <option value="1">Belanja Groceries</option>
+            <option value="2">Utilitas</option>
+            <option value="3">Sewa atau Hipotek</option>
+            <option value="4">Asuransi</option>
+            <option value="5">Kesehatan</option>
+            <option value="6">Biaya Kendaraan</option>
+            <option value="7">Transportasi Umum</option>
+            <option value="8">Makan di Luar</option>
+            <option value="9">Hiburan</option>
+            <option value="10">Liburan & Perjalanan</option>
+            <option value="11">Pakaian dan Aksesori</option>
+            <option value="12">Elektronik & Gadget</option>
+            <option value="13">Renovasi Rumah</option>
+            <option value="14">Layanan Hukum</option>
+            <option value="15">Fitness & Gym</option>
+            <option value="16">Makanan & Perlengkapan Hewan Peliharaan</option>
+            <option value="17">Pendidikan</option>
+            <option value="18">Pajak & Potongan</option>
+            <option value="19">Pembayaran Utang</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="amount">Sebesar</label>
+          <input type="number" name="amount" id="amount" required />
+        </div>
+
+        <button type="submit">simpan</button>
+      </form>
+    </section>
+  </div>
+</div>

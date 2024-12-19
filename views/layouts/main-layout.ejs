@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%- page_title %> - CekSaku</title>
+    <script
+    src="https://kit.fontawesome.com/6dd2932751.js"
+    crossorigin="anonymous"
+    ></script>
+    
+    <link rel="stylesheet" href="/css/navbar.css" />
+    <link rel="stylesheet" href="/css/dashboard.css" />
+    <link rel="stylesheet" href="/css/transactions.css">
+    <link rel="stylesheet" href="/css/manage.css">
+    <link rel="stylesheet" href="/css/account.css">
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  
+  <body>
+
+    <!-- Navbar Atas -->
+    <nav>
+      <a id="openIncomeModal" class="btn-primary">
+        <i class="fas fa-plus"></i> Pemasukan
+      </a>
+      <a id="openExpenseModal" class="btn-primary">
+        <i class="fas fa-plus"></i> Pengeluaran
+      </a>
+    </nav>
+
+    <!-- Sidebar -->
+    <div class="nav-list">
+      <!-- Logo -->
+      <div class="wrap-awal">
+        <div class="logo">
+          <img src="/images/logo.gif" alt="Logo" />
+          <span>CekSaku</span>
+        </div>
+        <i class="fas fa-bars wrap-nav" onclick="toggleSidebar()"></i>
+      </div>
+
+      <!-- Menu -->
+      <ul>
+        <li>
+          <a href="/"><i class="fas fa-home"></i>
+            <span class="nav-item">Dashbor</span></a>
+          <span class="tooltip">Dashbor</span>
+        </li>
+        <li>
+          <a href="/transactions"><i class="fas fa-list"></i>
+            <span class="nav-item">Transaksi</span></a>
+          <span class="tooltip">Transaksi</span>
+        </li>
+        <li>
+          <a href="/manage"><i class="fas fa-cogs"></i>
+            <span class="nav-item">Manajemen</span></a>
+          <span class="tooltip">Manajemen</span>
+        </li>
+        <hr />
+        <li>
+          <a href="/profile"><i class="fas fa-user"></i>
+            <span class="nav-item">Akun</span></a>
+          <span class="tooltip">Akun</span>
+        </li>
+      </ul>
+
+      <!-- User Info -->
+      <div class="user">
+        <% if (currentUser.profile_image_url) { %>
+          <img src="<%= currentUser.profile_image_url %>" alt="<%= currentUser.full_name %>" />
+        <% } else { %>
+          <img src="/images/avatar.png" alt="Default Avatar" />
+        <% } %>
+        <span><%= currentUser.full_name %></span>
+        <form action="/logout" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <button type="submit" class="btn-secondary"><i class="fas fa-sign-out-alt"></i></button>
+        </form>
+        </form>
+      </div>
+    </div>
+    
+  <div><%- body %></div>
+
+    <%- include('../modals/new-income-form', { categories: categories }); %> <%-
+    include('../modals/new-expense-form', { categories: categories }); %>
+
+    <script src="/js/app.js"></script>
+    <script src="/js/nav.js"></script>
+  </body>
+</html>

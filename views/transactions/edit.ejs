@@ -1,0 +1,66 @@
+<%- contentFor('page_title') %>Edit <%= transaction.transaction_type==='income' ? 'Income' : 'Expense' %>
+
+    <%- contentFor('body') %>
+      <div class="container-t body-wrapper">
+        
+        <%- include('../partials/sidebar') %>
+          <main>
+            <h1>Edit <%= transaction.transaction_type==='income' ? 'Income' : 'Expense' %>
+            </h1>
+            <div class="content-wrapper edit-transactions">
+
+              <form action="/transactions/<%= transaction.id %>" method="POST" class="md-content-width">
+                <input type="hidden" name="_method" value="PUT">
+                <input type="hidden" name="transaction_type" value="<%= transaction.transaction_type %>">
+
+                <div class="form-group">
+                  <label for="category" class="text-medium">Kategori</label>
+                  <select id="category" name="category">
+                    <% if (transaction.transaction_type==='income' ) { %>
+
+                      <% categories.forEach((category)=> { %>
+                        <% if (category.category_type==='income' ) { %>
+                          <option value="<%= category.id %>" <%=transaction.category_id===category.id ? 'selected' : ''
+                            %>
+                            >
+                            <%= category.name %>
+                          </option>
+                          <% } %>
+                            <% }) %>
+
+                              <% } else { %>
+
+                                <% categories.forEach((category)=> { %>
+                                  <% if (category.category_type==='expense' ) { %>
+                                    <option value="<%= category.id %>" <%=transaction.category_id===category.id
+                                      ? 'selected' : '' %>>
+                                      <%= category.name %>
+                                    </option>
+                                    <% } %>
+                                      <% }) %>
+
+                                        <% } %>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="amount" class="text-medium">Sebesar (<strong>
+                      <%= currentUser.currency_symbol %>
+                    </strong>)</label>
+                  <input type="number" min="1" step="any" name="amount" value="<%= transaction.amount %>">
+                </div>
+                <div class="form-group">
+                  <label for="description" class="text-medium">Deskripsi</label>
+                  <textarea name="description"><%= transaction.description %></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="date" class="text-medium">Tanggal Transaksi</label>
+                  <input type="date" name="date" value="<%= transaction.date.toISOString().substr(0, 10) %>">
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn-primary">simpan</button>
+                </div>
+              </form>
+
+            </div>
+          </main>
+      </div>

@@ -1,0 +1,31 @@
+<%- contentFor('page_title') %>Sign Up
+
+  <%- contentFor('body') %>
+  
+    <h2>Create Ceksaku account</h2>
+    <p class="subtitle">Enter Sign up below to create your Ceksaku account.</p>
+    <form action="/signup" method="post">
+
+      <div class="form-group">
+        <label for="full_name">Name</label>
+        <input type="text" name="full_name" placeholder="Full Name" />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" name="email" placeholder="email@domain.com" />
+      </div>
+
+      <div class="form-group">
+        <div>
+          <label for="password">Password</label>
+        </div>
+        <input type="password" name="password" placeholder="Password" />
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn-primary">Sign Up</button>
+      </div>
+    </form>
+    <p>
+      Have an account? <a href="/login">Login here.</a>
+    </p>

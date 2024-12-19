@@ -1,0 +1,51 @@
+<!-- Add New Income Modal -->
+<div id="incomeModal" class="new-income-modal">
+  <div class="modal-content">
+    <span class="close"><i class="fa-solid fa-xmark"></i></span>
+    <h3>Tambahkan Pemasukan Baru</h3>
+    <form action="/transactions" method="POST">
+      <input type="hidden" name="transaction_type" value="income" />
+      <div class="form-group">
+        <label for="category" class="text-medium">Kategori</label>
+        <select id="category" name="category" required>
+          <option selected>Pilih Kategori Penghasilan</option>
+          <option value="20">Gaji/Penghasilan</option>
+          <option value="21">Pekerjaan Lepas</option>
+          <option value="22">Penghasilan Bisnis</option>
+          <option value="23">Pendapatan Sewa</option>
+          <option value="24">Pendapatan Investasi</option>
+          <option value="25">Side Hustle</option>
+          <option value="26">Penjualan Online</option>
+          <option value="27">Biaya Konsultasi</option>
+          <option value="28">Komisi</option>
+          <option value="29">Dividen</option>
+          <option value="30">Pendapatan dari Sampingan</option>
+          <option value="31">Penjualan Kerajinan</option>
+          <option value="32">Mengajar/Tutor</option>
+          <option value="33">Penjualan Musik/Seni</option>
+          <option value="34">Penjualan Properti</option>
+          <option value="35">Pendapatan Iklan</option>
+          <option value="36">Biaya Lisensi</option>
+          <option value="37">Beasiswa & Hibah</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="amount" class="text-medium"
+          >Sebesar (<strong> <%= currentUser.currency_symbol %> </strong>)</label
+        >
+        <input type="number" min="1" step="any" name="amount" />
+      </div>
+      <div class="form-group">
+        <label for="description" class="text-medium">Deskripsi</label>
+        <textarea name="description"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="date" class="text-medium">Tanggal Transaksi</label>
+        <input type="date" name="date" />
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn-primary">simpan</button>
+      </div>
+    </form>
+  </div>
+</div>
